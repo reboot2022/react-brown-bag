@@ -1,14 +1,12 @@
 import './App.css';
 import Hello from './components/Hello';
-import Cities from './components/Cities';
+import SignatureList from './components/SignatureList';
 
 function App() {
-
-
   return (
     <div className="App">
       <Hello />
-      <Cities />
+      <SignatureList />
     </div>
   );
 }
