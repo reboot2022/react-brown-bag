@@ -3,4 +3,5 @@ package-lock.json
 .gitignore
 /src
 /public
+/node_modules
 README.md
