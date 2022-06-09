@@ -1,9 +1,11 @@
 import { addDoc, collection } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
+
+// Since we are using Firestore in this file, we need to import it.
 import { db } from '../Util/firebase'
 
 export default function Hello() {
-    // Creates a state called name, and a setter called setName.
+    // Creates a state called name, a setter called setName. Initial state of ""
     const [name, setName] = useState("")
 
     // This function handles input to the text field.
@@ -12,7 +14,9 @@ export default function Hello() {
         setName(value)
     }
 
+    // This function handles the creation and publishing of a new document.
     const sendSignature = async () => {
+        // https://firebase.google.com/docs/firestore/manage-data/add-data
         const docRef = await addDoc(collection(db, "signatures"), {
             name: name
         });
@@ -34,6 +38,7 @@ export default function Hello() {
 
     return (
         <div style={{ backgroundColor: "gray", textAlign: 'center', borderRadius: 5 }}>
+            {/* Ternary operator - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator */}
             {name.length > 0 ?
                 <h1>Hello, {name}</h1> :
                 <h1>You too good for a name, huh?</h1>
